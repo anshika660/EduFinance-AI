@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFinance AI | Student Finance Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="background"></div>
+
+<nav>
+    <div class="logo">EduFinance AI</div>
+    <button id="themeToggle">🌙</button>
+</nav>
+
+<section class="hero">
+    <div class="hero-left">
+        <span class="badge">AI Powered Financial Intelligence</span>
+        <h1>AI-Powered Student Finance Dashboard</h1>
+        <p>A comprehensive dashboard designed for students to model loans, track daily expenses, and achieve savings goals with precision.</p>
+        <div class="hero-buttons">
+            <button>Start Planning</button>
+            <button class="secondary" onclick="window.scrollTo({top:700,behavior:'smooth'})">
+    Start Exploring
+</button>
+        </div>
+    </div>
+    <div class="hero-right">
+        <div class="glass-card"><h3>Monthly EMI</h3><h1 id="heroEMI">₹0</h1></div>
+        <div class="glass-card"><h3>Total Savings</h3><h1 id="heroSavings">₹0</h1></div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="dashboard-overview">
+        <div class="overview-card"><h4>Financial Health</h4><h2 id="healthScore">0%</h2></div>
+        <div class="overview-card"><h4>Monthly EMI</h4><h2 id="statEMI">₹0</h2></div>
+        <div class="overview-card"><h4>Total Savings</h4><h2 id="statSavings">₹0</h2></div>
+        <div class="overview-card"><h4>Risk Level</h4><h2 id="riskLevel">Low</h2></div>
+        <div class="overview-card"><h4>Affordability</h4><h2 id="affordabilityScore">0/100</h2></div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="card">
+        <h2>EMI Calculator</h2>
+        <div class="input-group"><label>Loan Amount (₹)</label><input type="number" id="loanAmount" placeholder="500000"></div>
+        <div class="input-group"><label>Interest Rate (%)</label><input type="number" id="interestRate" placeholder="8.5"></div>
+        <div class="input-group"><label>Tenure (Yrs)</label><input type="number" id="loanTenure" placeholder="5"></div>
+        <button onclick="calculateEMI()">Calculate EMI</button>
+    </div>
+
+    <div class="card">
+        <h2>Results Dashboard</h2>
+        <div class="result-box"><span>Monthly EMI</span><h3 id="emi">₹0</h3></div>
+        <div class="result-box"><span>Total Interest</span><h3 id="interest">₹0</h3></div>
+        <div class="result-box"><span>Total Payment</span><h3 id="payment">₹0</h3></div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="card">
+        <h2>Expense Tracker</h2>
+        <div class="input-group"><label>Monthly Income</label><input type="number" id="monthlyIncome"></div>
+        <div class="input-group"><label>Rent</label><input type="number" id="rent"></div>
+        <div class="input-group"><label>Food</label><input type="number" id="food"></div>
+        <div class="input-group"><label>Transport</label><input type="number" id="transport"></div>
+        <div class="input-group"><label>Other Expenses</label><input type="number" id="otherExpenses"></div>
+        <button onclick="calculateBudget()">Analyze Budget</button>
+        <div id="budgetResult"></div>
+    </div>
+
+    <div class="card">
+        <h2>Savings Goal Planner</h2>
+        <div class="input-group"><label>Target Amount (₹)</label><input type="number" id="targetAmount"></div>
+        <div class="input-group"><label>Months Available</label><input type="number" id="targetMonths"></div>
+        <button onclick="calculateSavings()">Calculate Savings</button>
+        <div class="saving-output"><h3 id="savingResult">₹0/month</h3></div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="card">
+        <h2>AI Financial Insights</h2>
+        <div id="aiAdvice">Enter your loan and expense details to receive personalized AI-driven financial recommendations.</div>
+    </div>
+</section>
+
+<section class="chart-section">
+    <div class="card">
+        <h2>Loan Breakdown</h2>
+        <canvas id="loanChart"></canvas>
+    </div>
+    <div class="card">
+        <h2>EMI vs Income</h2>
+        <canvas id="incomeChart"></canvas>
+    </div>
+    <div class="card">
+        <h2>Expense Distribution</h2>
+        <canvas id="expenseChart"></canvas>
+    </div>
+</section>
+
+<section class="container">
+    <div class="card">
+        <h2>Recent Calculations</h2>
+        <ul id="historyList">
+            <li>No calculations yet</li>
+        </ul>
+    </div>
+</section>
+
+<section class="container">
+    <div class="card">
+        <h2>Why I Built This Tool</h2>
+        <p>Students often take education loans without understanding the long-term repayment burden. This platform helps users evaluate affordability, plan savings, and manage expenses before making financial decisions.</p>
+    </div>
+</section>
+
+<div class="export-section">
+    <button onclick="downloadPDF()" class="primary-btn">Download Full Financial Report</button>
+</div>
+
+<footer>
+    <h3>Anshika Sharma</h3>
+    <p>anshikasharma15122005@gmail.com</p>
+    <a href="https://digitalheroesco.com" target="_blank" class="digital-btn">Built for Digital Heroes</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
