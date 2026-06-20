@@ -96,6 +96,32 @@ The project focuses on delivering an intuitive user experience with a responsive
 * Local Storage API
 
 ---
+## Live Demo
+
+The application is deployed and accessible online:
+
+https://edu-finance-ai-ecru.vercel.app
+
+Users can:
+
+* Calculate Education Loan EMIs
+* Track Monthly Expenses
+* Plan Savings Goals
+* Analyze Financial Health
+* View Interactive Financial Charts
+* Generate Financial Reports
+* Receive AI-Based Financial Recommendations
+
+---
+
+## Deployment
+
+Platform: Vercel
+
+Deployment URL:
+https://edu-finance-ai-ecru.vercel.app
+
+Status: Production Ready
 
 ## Project Structure
 
